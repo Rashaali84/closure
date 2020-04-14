@@ -10,19 +10,25 @@ const doesItClose = (func, arg) => {
   const createsAClosure = returnedAFunction && !returnedArgument;
   return createsAClosure;
 }
-
+//the function inside the parent function 
+//use lexical environments od its parent never
+//This is a closure function 
 const never = (x) => {
-  return x;
+  //return x;
+  var inValue = x;
+  function returnAnswer() {
+    return x;
+  }
+  return returnAnswer;
 }
-
 const whenPassed4 = doesItClose(never, 4);
-console.assert(whenPassed4 === null, "... when passed 4");
+console.assert(whenPassed4 === true, "... when passed 4");
 
 const whenPassedAFunction = doesItClose(never, function () { });
-console.assert(whenPassedAFunction === null, "... when passed a function");
+console.assert(whenPassedAFunction === true, "... when passed a function");
 
 const whenPassedAnArray = doesItClose(never, []);
-console.assert(whenPassedAnArray === null, "... when passed an array");
+console.assert(whenPassedAnArray === true, "... when passed an array");
 
 const whenPassedItself = doesItClose(never, never);
-console.assert(whenPassedItself === null, "... when passed itself");
+console.assert(whenPassedItself === true, "... when passed itself");

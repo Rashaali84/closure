@@ -10,7 +10,7 @@ const doesItClose = (func, arg) => {
   const createsAClosure = returnedAFunction && !returnedArgument;
   return createsAClosure;
 }
-
+//this is a closure function 
 const always = (x) => {
   return function () {
     console.log(x)
