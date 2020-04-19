@@ -1,7 +1,7 @@
 const closesParentParamter = (parentParam) => {
   // write me!
   function answer(childParam) {
-    let answerValue = childParam.split('').join(parentParam);
+    let answerValue = childParam.split('').join(parentParam).trim();
     return answerValue;
   }
   return answer;
@@ -24,9 +24,9 @@ console.assert(result4 === 'x~y~z', "assert 4");
 
 
 const closure3 = closesParentParamter('--');
-const result5 = closure3('01');
-console.assert(result5 === "0--1", "assert 5");
+const result5 = closure3(' 01 ');
+console.assert(result5 === "--0--1--", "assert 5");
 
 const closure4 = closesParentParamter('--');
-const result6 = closure4('10');
-console.assert(result6 === "1--0", "assert 6");
+const result6 = closure4(' 10 ');
+console.assert(result6 === "--1--0--", "assert 6");
