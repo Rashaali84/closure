@@ -12,13 +12,13 @@ const two = closeAValue(2);
 const twoReturns = two();
 console.assert(twoReturns === 2, "asserting two's return value");
 
-const three = closeAValue(3);
+const three = closeAValue(one() + two() + one());
 const threeReturns = three();
-console.assert(threeReturns === 3, "asserting three's return value");
+console.assert(threeReturns === 4, "asserting three's return value");
 
 
-const sum = one() + two() + three() + one(); // fix this line to pass the assert
+const sum = one() + two() + three(); // fix this line to pass the assert
 console.assert(sum === 7, "summing closed values");
 
-const product = 4 * (three() + one()); // fix this line to pass the assert
+const product = 4 * (three()); // fix this line to pass the assert
 console.assert(product === 16, "create the value 16 using your closed functions");
